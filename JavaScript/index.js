@@ -13,7 +13,6 @@ async function checkWeather(city){
   //this line of code is asking the server (defined by 'apiUrl') to give some data and waiting for the server to respond, once it does the response is stored in the 'response' variable for further use
   const response =  await fetch (apiUrl + city + `&appid=${apiKey}`);
 
-
   //if the http response status is '404' then this code makes the element with class ".error" visible (by setting its display property to "block") and hides the element with the class ".weather" (by setting its diplay property to "none").
   if (response.status == 404){
     document.querySelector(".error").style.display ="block";
@@ -44,16 +43,11 @@ async function checkWeather(city){
       weatherIcon.src="/images/mist.png";
     }
 
-
     //"display:none" hides an element completely while "display:block" makes an element a block level element and display it on the webpage
     document.querySelector(".weather").style.display ="block";
     document.querySelector(".error").style.display ="none";
-
   }
-
 }
-
-
 
 //when the button("searchBtn") is clicked, the "checkWeather" function is called with the value entered in the search input field ("searchBox.value") as its arguments
 searchBtn.addEventListener("click",()=>{
